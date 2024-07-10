@@ -1,17 +1,26 @@
-html,
-body {
+html {
 	height: 100%;
-	display: flex;
+	margin: 0;
 }
 
 body {
+	margin: 0;
 	height: 100%;
+	display: flex;
+	height: calc(100% - 5rem);
 	display: flex;
 	flex-direction: column;
 	font-family: sans-serif;
 	padding: 2rem;
-	font-size: 1.5em;
-	margin: 1rem
+	font-size: 1.3em;
+	padding: 2rem;
+	border-top: 1rem solid green;
+}
+
+a {
+	color: white;
+	text-decoration-color: green;
+	text-decoration-thickness: 4px;
 }
 
 img {
@@ -34,11 +43,17 @@ button {
 }
 
 button {
+	font-weight: bold;
 	padding: 2rem;
 	border-radius: 6px;
 	text-align: center;
 	width: 100%;
 	border: 0;
+	background: green;
+	color: white;
+	text-decoration: underline;
+	text-decoration-color: white;
+	text-decoration-thickness: 1px;
 }
 
 main {
@@ -47,10 +62,8 @@ main {
 
 footer {
 	flex-shrink: 1;
-	margin-bottom: 5rem;
 	font-size: .9em;
 	width: calc(100% + 2rem);
-	margin-left: -1rem;
 }
 
 /* Elite level dark / light mode */
