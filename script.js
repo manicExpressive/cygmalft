@@ -15,4 +15,3 @@ const queryString = window.location.search.replace("?s=",'')
   }
     r.parentNode.insertBefore( div, r );
 }
-
