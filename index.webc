@@ -1,7 +1,8 @@
-<html><head>
+<html lang="en"><head>
 <meta property="og:title" content="Can you get me a link for this?" />
 <meta property="og:url" content="https://cygmalft.netlify.app" />
-<meta property="og:image" content="/open-graph.jpg" />
+<meta property="og:image" content="/open-graph.png" />
+<meta name="description" content="Finding public links">
 
 <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="_components/style.css">
@@ -9,7 +10,7 @@
   <style webc:keep @raw="getBundle('css')"></style>
 
 <title>Can you get me a link for this?</title>
-<metaname="viewport"content="width=device-width,initial-scale=1,maximum-scale=1,user-scal able=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="generator" content="{{ eleventy.generator }}">
+<meta name="viewport"content="width=device-width,initial-scale=1,maximum-scale=1,user-scal able=no"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="generator" content="{{ eleventy.generator }}">
 </head>
 <body>
     <main>

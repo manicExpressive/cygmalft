@@ -6,6 +6,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./_components/**.*");
   eleventyConfig.addPlugin(pluginWebc);
   eleventyConfig.addPassthroughCopy("style.css");
+  eleventyConfig.addPassthroughCopy("open-graph.png");
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addFilter("nicerDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATETIME_HUGE_WITH_SECONDS);
