@@ -10,7 +10,7 @@
   <style webc:keep @raw="getBundle('css')"></style>
 
 <title>Can you get me a link for this?</title>
-<meta name="viewport"content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="generator" content="{{ eleventy.generator }}">
+<meta name="viewport"content="width=device-width"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="generator" content="Eleventy v3.0.0">
 </head>
 <body>
     <main>

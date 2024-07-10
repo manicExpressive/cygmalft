@@ -10,7 +10,7 @@ body {
 	flex-direction: column;
 	font-family: sans-serif;
 	padding: 2rem;
-	font-size: 2em;
+	font-size: 1.5em;
 	margin: 1rem
 }
 
@@ -26,6 +26,10 @@ li {
 	font-size: 1em;
 	margin: 1rem 0;
 	width: calc(100% - 2rem);
+}
+
+input,
+button {
 	padding: 1rem;
 }
 
@@ -44,6 +48,7 @@ main {
 footer {
 	flex-shrink: 1;
 	margin-bottom: 5rem;
+	font-size: .9em;
 }
 
 /* Elite level dark / light mode */
