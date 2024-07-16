@@ -2,7 +2,7 @@ import puppeteer from "puppeteer";
 import cheerio from "cheerio";
 import fs from "fs";
 
-(async () => {
+const pullHeadlines = async function() {
   // Launch the browser and open a new blank page
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -29,7 +29,8 @@ import fs from "fs";
     	let processedUrl = new URL(url + "?outputType=amp&message=fuckYourPaywall");
 	listOfUrls.pop(processedUrl);	
 	stringText = stringText + `<li><a href="${processedUrl}">${processedUrl}</a></li>\n`;
-    console.log(listOfUrls);
+    console.log("Urls? We've got em");
+    console.log(listOfUrls.length);
   });
 
   stringText = stringText + `</ul>`;
@@ -37,4 +38,6 @@ import fs from "fs";
 fs.writeFileSync("_components/ol-headlines.webc", stringText)
 
   await browser.close();
-})();
+}
+
+export default pullHeadlines;
