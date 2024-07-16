@@ -27,10 +27,9 @@ const pullHeadlines = async function() {
   $(".subscriberExclusive").each((index, element) => {
 	let url = $(element).closest("a").attr().href;
     	let processedUrl = new URL(url + "?outputType=amp&message=fuckYourPaywall");
-	listOfUrls.pop(processedUrl);	
-	stringText = stringText + `<li><a href="${processedUrl}">${processedUrl}</a></li>\n`;
-    console.log("Urls? We've got em");
-    console.log(listOfUrls.length);
+	let headline = $(element).closest("a").text().replace("SubscriberKeyKey that denotes Subscriber Exclusive content.","").substring(0, 70);
+    console.log(headline);
+	stringText = stringText + `<li><a href="${processedUrl}">${headline}&#8230;</a></li>\n`;
   });
 
   stringText = stringText + `</ul>`;
