@@ -2,7 +2,7 @@ import puppeteer from "puppeteer";
 import cheerio from "cheerio";
 import fs from "fs";
 
-const pullHeadlines = async function() {
+const pullHeadlines = async function () {
   // Launch the browser and open a new blank page
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -24,19 +24,55 @@ const pullHeadlines = async function() {
   let stringText = "<ul>";
   let listOfUrls = [];
   const $ = cheerio.load(htmlContent);
-  $(".subscriberExclusive").each((index, element) => {
-	let url = $(element).closest("a").attr().href;
-    	let processedUrl = new URL(url + "?outputType=amp&message=fuckYourPaywall");
-	let headline = $(element).closest("a").text().replace("SubscriberKeyKey that denotes Subscriber Exclusive content.","").substring(0, 70);
-    console.log(headline);
-	stringText = stringText + `<li><a href="${processedUrl}">${headline}&#8230;</a></li>\n`;
-  });
+
+  const processLink = function (link, source) {
+    let url = $(link).children("a").attr().href;
+    let processedUrl = new URL(url + "?outputType=amp&message=fuckYourPaywall");
+    let headline = $(link).text();
+
+    if ($(link).hasClass(".article")) {
+    }
+
+    let processedHeadline = headline
+      .replace(
+        "SubscriberKeyKey that denotes Subscriber Exclusive content.",
+        "",
+      )
+      .split(/\.(?=[^\.]+$)/)[0];
+
+    if (source === "sidebar") {
+      processedHeadline = processedHeadline
+	.split(/(?<=^\S+)\s/)[1]
+	.replace("KeyKey that denotes Subscriber Exclusive content.", "")
+    }
+    if (source === "main") {
+      processedHeadline.replace("Subscriber", "");
+    }
+
+    stringText =
+      stringText +
+      `<li><a href="${processedUrl}">${processedHeadline}</a></li>\n`;
+    console.log(stringText);
+  };
+  // Grab headlines from sidebar
+  $(".module__recent li.article")
+    .has(".subscriberExclusive")
+    .each((index, element) => {
+      processLink(element, "sidebar");
+    });
+
+  // Grab headlines from main
+  $(".article--lead")
+    .has(".subscriberExclusive")
+    .each((index, element) => {
+      processLink(element, "main");
+    });
 
   stringText = stringText + `</ul>`;
 
-fs.writeFileSync("_components/ol-headlines.webc", stringText)
+  fs.writeFileSync("_components/ol-headlines.webc", stringText);
 
   await browser.close();
-}
+};
 
 export default pullHeadlines;
