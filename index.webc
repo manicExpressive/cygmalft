@@ -26,7 +26,7 @@
 <details>
 <summary>Who/What/When/Where/Why</summary>
 <ul>
-<li><strong>Who:</strong> It's me, <a href="https://joshuablount.com">Joshie B</a></li>
+<li><strong>Who:</strong> Shh</li>
 <li><strong>What:</strong> A way to access links to local journalism</a>
 <li><strong>When:</strong> Last updated: <span @text=page.date></span></li>
 <li><strong>Where:</strong> NoPo, Portland, Oregon</li>
